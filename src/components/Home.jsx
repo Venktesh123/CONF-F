@@ -21,7 +21,8 @@ const Home = () => {
     try {
       const response = await axios.post(`${API_URL}/api/room`);
       const { roomId } = response.data;
-      navigate(`/room/${roomId}`, { state: { username } });
+      // Navigate as host
+      navigate(`/room/${roomId}`, { state: { username, isHost: true } });
     } catch (error) {
       console.error("Error creating room:", error);
       alert("Failed to create room. Please try again.");
@@ -41,7 +42,8 @@ const Home = () => {
       return;
     }
 
-    navigate(`/room/${roomId}`, { state: { username } });
+    // Navigate as participant
+    navigate(`/room/${roomId}`, { state: { username, isHost: false } });
   };
 
   return (
@@ -64,7 +66,7 @@ const Home = () => {
             onClick={createRoom}
             disabled={isCreating}
           >
-            {isCreating ? "Creating..." : "Create New Meeting"}
+            {isCreating ? "Creating..." : "Create New Meeting (Host)"}
           </button>
 
           <div className="divider">
@@ -82,7 +84,7 @@ const Home = () => {
           </div>
 
           <button className="join-button" onClick={joinRoom}>
-            Join Meeting
+            Join Meeting (Participant)
           </button>
         </div>
       </div>

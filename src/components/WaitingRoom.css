@@ -1,0 +1,72 @@
+.waiting-room {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212;
+  color: white;
+}
+
+.waiting-container {
+  text-align: center;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+}
+
+.waiting-icon {
+  margin-bottom: 20px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #333;
+  border-top: 4px solid #2d8cff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.waiting-container h2 {
+  color: #2d8cff;
+  margin-bottom: 15px;
+}
+
+.waiting-container p {
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+.waiting-info {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.leave-waiting-button {
+  background-color: #ff5d5d;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.leave-waiting-button:hover {
+  background-color: #ff3c3c;
+}

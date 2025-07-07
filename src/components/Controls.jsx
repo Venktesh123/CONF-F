@@ -6,6 +6,7 @@ import {
   FaVideoSlash,
   FaPhoneSlash,
   FaUserFriends,
+  FaUserClock,
 } from "react-icons/fa";
 import "./Controls.css";
 
@@ -17,6 +18,9 @@ const Controls = ({
   leaveRoom,
   toggleParticipants,
   participantsCount,
+  isHost,
+  waitingCount,
+  toggleWaitingRoom,
 }) => {
   return (
     <div className="controls">
@@ -62,6 +66,23 @@ const Controls = ({
         <FaUserFriends />
         <span>Participants ({participantsCount})</span>
       </button>
+
+      {isHost && (
+        <button
+          className={`control-button ${
+            waitingCount > 0 ? "control-button-notification" : ""
+          }`}
+          onClick={toggleWaitingRoom}
+        >
+          <FaUserClock />
+          <span>
+            Waiting Room
+            {waitingCount > 0 && (
+              <span className="notification-badge">{waitingCount}</span>
+            )}
+          </span>
+        </button>
+      )}
 
       <button
         className="control-button control-button-danger"
